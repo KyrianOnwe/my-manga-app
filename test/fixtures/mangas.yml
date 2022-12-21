@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  artist: MyString
+  description: MyString
+  ongoing: false
+  genre: MyString
+  chapters: MyString
+  image: MyString
+
+two:
+  title: MyString
+  artist: MyString
+  description: MyString
+  ongoing: false
+  genre: MyString
+  chapters: MyString
+  image: MyString
