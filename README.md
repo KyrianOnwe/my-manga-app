@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+<!-- Server not responding: -->
+ sudo service postgresql start
+
