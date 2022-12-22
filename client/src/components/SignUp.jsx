@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import {Form} from '../styled/Form'
+// import {Form} from '../styled/Form'
 
 function SignUp({ useSetUser, usErr }) {
-    const [name, setUsername] = useState('')
+    const [user_name, setUsername] = useState('')
     const [password, setpassword] = useState('')
-    const [admin, setAdmin] = useState(false)
+    const [email, setEmail] = useState('')
     let holder 
 
     function useWorkGoddamint(data){
@@ -12,16 +12,16 @@ function SignUp({ useSetUser, usErr }) {
         useSetUser(holder)                
         setUsername('')
         setpassword('')
-        setAdmin(false)
+        setEmail('')
         
     }
 
     function onSubmit(e){
         e.preventDefault()
         const user = {
-            name, 
+            user_name, 
             password,
-            admin
+            email
         }
         fetch('/users', {
             method: "POST", 
@@ -39,24 +39,25 @@ function SignUp({ useSetUser, usErr }) {
     }
   return (
     <>
-    <Form onSubmit={onSubmit} >
+    <form onSubmit={onSubmit} >
         <label>
             Username 
             <br />
-            <input type='text' value={name} onChange={(e) => setUsername(e.target.value)} />
+            <input type='text' value={user_name} onChange={(e) => setUsername(e.target.value)} />
+        </label>
+        <label>
+            email?  
+            <br />
+            <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} />
         </label>
         <label>
             Password  
             <br />
             <input type='password' value={password} onChange={(e) => setpassword(e.target.value)} />
         </label>
-        <label>
-            Adminisrator?  
-            <br />
-            <input type='text' value={admin} onChange={(e) => setAdmin(e.target.value)} />
-        </label>
+
         <input type='submit' value="Sign up" /> 
-    </Form>
+    </form>
 
     </>
   )

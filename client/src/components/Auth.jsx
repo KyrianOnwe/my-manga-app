@@ -2,12 +2,12 @@ import React from 'react'
 import Login from './Login'
 import SignUp from './SignUp'
 
-function Auth({ setu, usnewusr, newUser, useSetUser, usErr }) {
+function Auth({ setu, useSE, newUsr, useSnu }) {
   return (
     <div>
-        {!newUser ? <Login setu={setu} usErr={usErr} /> : <SignUp useSetUser={useSetUser} usErr={usErr} />}
+        <Login setu={setu} usErr={useSE} /> : <SignUp useSetUser={setu} usErr={useSE} />
 
-        <button onClick={usnewusr}>{newUser ? `Log in` : `Sign up!`}</button>
+        <button onClick={useSnu}>{newUsr ? `Log in` : `Sign up!`}</button>
     </div>
   )
 }

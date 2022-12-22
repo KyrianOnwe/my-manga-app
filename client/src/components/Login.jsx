@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Form} from '../styled/Form'
+// import {Form} from '../styled/Form'
 
 function Login({setu, usErr}) {
     const [formData, setFormData] = useState({
@@ -39,7 +39,7 @@ function Login({setu, usErr}) {
 
         return (
         <> 
-        <Form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
         <label>
           Username
           </label>
@@ -51,7 +51,7 @@ function Login({setu, usErr}) {
         <input type='password' name='password' value={password} onChange={handleChange} />
        
         <input type='submit' value='Log in!' />
-      </Form>
+      </form>
         </>
     )
 }
