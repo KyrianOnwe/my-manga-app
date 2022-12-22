@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Auth from './components/Auth'
+// import ReviewsPage from './components/ReviewsPage';
 
 function App() {
   const [mangas, setMangas] = useState([])
@@ -67,9 +68,11 @@ function App() {
     setTimeout(() => {
       clearErrorMessage()
       }, 10000);
-  }
+    }
   
-}
+  }
+
+
  
   return (
     <div className="App">
@@ -78,9 +81,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/auth' element={<Auth setu={useSetCurrentUser} useSE={useSetErrors} newUsr={newUser} useSnu={useSetNewUser} />} />
+        <Route path='/mangas' element={<MangaPage mangas={mangas} currUse={currentUser} />} />                
       </Routes>
+      {/* <ReviewsPage /> */}
 
-      <MangaPage mangas={mangas}/>
+      
  
     </div>
   );

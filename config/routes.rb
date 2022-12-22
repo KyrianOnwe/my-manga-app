@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users, only: [:create, :show]
-  resources :reviews
+  resources :reviews, only: [:create, :index, :show, :patch]
   resources :mangas
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

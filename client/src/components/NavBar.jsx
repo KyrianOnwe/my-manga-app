@@ -8,7 +8,7 @@ function NavBar({ deleteUser }) {
     <div id='navbar'>
     <ul>
         <li><Link to="/">Home</Link></li>          
-        <li><Link to="/reviews">Reviews</Link></li>
+        {/* <li><Link to="/reviews">Reviews</Link></li> */}
         <li><Link to="/mangas">Mangas</Link></li>
         <Logout deleteUser={deleteUser} />
 
