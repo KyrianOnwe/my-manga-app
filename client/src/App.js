@@ -20,6 +20,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({})
   const [errors, setErrors] = useState([])
   const [newUser, setNewUser] = useState(false)
+  const [logged, setLogged] = useState(false)
   // const [signingIn, setSigningIn] = useState(false)
   const hist = useNavigate()
   
@@ -34,14 +35,29 @@ function App() {
       }
     })  
  }, [])
+console.log(logged)
+
 
  function useSetCurrentUser(info){
   setCurrentUser(info)
   hist('/mangas')
+  setLogged(true)
  }
 
  function useSetMangas(ata){
-  setMangas([...mangas, ata])
+  setMangas(ata)
+ }
+
+ function addMangas(data){
+  let holder = mangas
+  holder = [...holder, data]
+  setMangas(holder)
+  hist('/mangas')
+ }
+
+ function addMangas2(data){
+  setMangas(data)
+  hist('/mangas')
  }
 //  function useSetSigningIn(){
 //   setSigningIn(true)
@@ -50,6 +66,9 @@ function App() {
  function deleteUser(){
   // console.log('deleted user')
   setCurrentUser({})
+  hist('/mangas')
+  setMangas(mangas)
+  setLogged(false)
   }
 
   function useSetNewUser(){
@@ -95,20 +114,23 @@ function App() {
   
   }
 
-  function addNewManga(data){
-    setMangas([...mangas, data])
-  }
+  // function addNewManga(data){
+  //   setMangas([...mangas, data])
+  // }
 
-  useEffect(() => {
-    fetch('/auth')
-      .then(res => {
-        if(res.ok){
-          res.json().then(useSetCurrentUser)
-        } 
-      }      
-      )
-  },[])
+  // useEffect(() => {
+  //   fetch('/auth')
+  //     .then(res => {
+  //       if(res.ok){
+  //         res.json().then(useSetCurrentUser)
+  //       } else {
+  //         console.log('hello')
+  //       }
+  //     }      
+  //     )
+  // },[])
 
+  
 
 
  
@@ -116,11 +138,11 @@ function App() {
     <>
     <CssBaseline />
     <AppBar position='relative'>
-      <NavBar deleteUser={deleteUser} currUser={currentUser} />
+      <NavBar deleteUser={deleteUser} currUser={currentUser} logged={logged}/>
     </AppBar>
     <div className="App">
       
-      {currentUser ? null : <div className='button' id='auth' onClick={() => hist('/auth')} >
+      {logged ? null : <div className='button' id='auth' onClick={() => hist('/auth')} >
       <Grid container spacing={2} justifyContent='center' >
         <Grid item>
           <AccountBoxIcon >
@@ -134,8 +156,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/auth' element={<Auth setu={useSetCurrentUser} useSE={useSetErrors} newUsr={newUser} useSnu={useSetNewUser} />} />
-        <Route path='/mangas' element={<MangaPage mangas={mangas} currUse={currentUser} />} />  
-        <Route path='/mangas/new' element={<MangaBuild addMng={addNewManga} usErr={useSetErrors} />} />
+        <Route path='/mangas' element={<MangaPage mangas={mangas} currUse={currentUser} logged={logged} add={addMangas2} />} />  
+        <Route path='/mangas/new' element={<MangaBuild addMng={addMangas} usErr={useSetErrors} />} />
                      
       </Routes>
       {/* <ReviewsPage /> */}       

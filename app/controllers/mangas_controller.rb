@@ -3,13 +3,13 @@ class MangasController < ApplicationController
     # skip_before_action :is_authorized
     # skip_before_action :current_user
     def index
-        man = Manga.all
-        render json: man, status: :ok
+        manga = Manga.all
+        render json: manga, status: :ok
     end
 
     def create
-        byebug
         man = Manga.create!(manga_params)
+        render json: man, status: :ok
     end
 
     def destroy
@@ -24,6 +24,6 @@ class MangasController < ApplicationController
 
     private
     def manga_params
-
+        params.permit(:image, :chapters, :genre, :ongoing, :description, :artist, :title)
     end
 end

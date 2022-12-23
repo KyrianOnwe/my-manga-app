@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Home({ admin }) {
+function Home() {
   return (
-    <div>{admin ? "Welcome, Task Master!  Please proceed to creating projects and tasks for your minions to complete!" : "Welcome to you Task Master!  Click on 'Tasks' to see what tasks and projects you have been assigned to."}</div>
+    <div id='home-screen'><h3>"Welcome, and enjoy your time scoping out the manga we have here for you and please feel free to add more."</h3></div>
   )
 }
 

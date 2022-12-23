@@ -39,7 +39,7 @@ function SignUp({ useSetUser, usErr }) {
     }
   return (
     <>
-    <form onSubmit={onSubmit} >
+    <form onSubmit={onSubmit} className='form' >
         <label>
             Username 
             <br />
@@ -55,6 +55,7 @@ function SignUp({ useSetUser, usErr }) {
             <br />
             <input type='password' value={password} onChange={(e) => setpassword(e.target.value)} />
         </label>
+        <br />
 
         <input type='submit' value="Sign up" /> 
     </form>

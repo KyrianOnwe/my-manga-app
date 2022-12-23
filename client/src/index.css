@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,7 +10,26 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image:url('./images/background2.jpg') ;
+  color: azure;
+  background-attachment: fixed;
 }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 
 #navbar {
   background-color: rgb(2, 37, 5);
@@ -46,4 +65,151 @@ code {
 #navbar a:hover {
   background: rgb(2, 53, 38);
   color: rgb(201, 24, 24);
+}
+.manga-page {
+  width:fit-content;
+  background-color: aliceblue;
+}
+.manga-container {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 15px;
+  padding-left: 2%;
+  padding-right: 2%;
+  background-position:center right;
+  text-align: center;
+  font-size: large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  content: "";
+  display: block;
+  clear: both;
+  align-content: center;
+}
+
+.manga-card {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 210px 250px 20px;
+  grid-template-areas: 'image' 'text';
+  border-radius: 18px;
+  background-color: rgb(255, 0, 0);
+  color: rgb(250, 6, 6);
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 10px;
+  padding-bottom: 1%;
+  position: relative;
+  text-shadow: black;
+  opacity: calc(94%);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  min-width: 300px;
+  width: 60%;
+  align-self: center;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 100px;
+  grid-template-rows: 110px 150px 20px;
+  grid-template-areas: 'image' 'text';
+  border-radius: 18px;
+  background-color: rgb(255, 0, 0);
+  color: rgb(236, 112, 29);
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 10px;
+  padding-bottom: 1%;
+  position: relative;
+  text-shadow: black;
+  opacity: calc(94%);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  min-width: 300px;
+  width: 60%;
+  align-self: center;
+}
+
+.form2 {
+  display: grid;
+  grid-template-columns: 70px;
+  grid-template-rows: 50px 33px 20px;
+  grid-template-areas: 'image' 'text';
+  border-radius: 18px;
+  background-color: rgb(255, 0, 0);
+  color: rgb(236, 112, 29);
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 10px;
+  padding-bottom: 1%;
+  position: relative;
+  text-shadow: black;
+  opacity: calc(94%);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  min-width: 300px;
+  width: 60%;
+  align-self: center;
+}
+
+.manga-form-container {
+  background-image: url('./images/background3.jpg');
+  background-size: cover;
+  text-align: center;
+}
+
+.manga-form {
+  text-align: center;
+  margin: auto;
+  width: 65%;
+  align-content: center;
+}
+
+#card-holder {
+  border: black;
+  max-height: fit-content;
+  border: 2px solid rgb(204, 204, 204);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: max-content max-content 1fr;
+  grid-gap: 9px;
+  box-sizing: border-box;
+  height: 600px;
+  width: 100%;
+  background-color: #f7ff8c;
+}
+
+.card {  
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #8ca0ff;
+  padding: 5px;
+  margin-bottom: 1em;
+  background-color: #8ca0ff;
+  padding: 5px;
+}
+
+.manga-form input{
+  margin-bottom: 15px;
+  padding-bottom: 20px;
+}
+
+#home-screen {
+  font-size: x-large;
+  font-weight: 200;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  background-image: url('./images/background4.jpg');
+}
+
+#home-screen p{
+  width: 40%;
+  min-width: 40%;
+  max-height: 40%;
+  text-align: center;
+  margin: auto;
+  padding-top: 15px;
+  position: relative;
+  padding-bottom: 15px;
+  font-size: 15px;
 }

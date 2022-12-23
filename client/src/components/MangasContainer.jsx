@@ -1,13 +1,13 @@
 import React from 'react'
 import NewMangaCards from './NewMangaCards'
 
-function MangasContainer({ manga, choice, currUse }) {
+function MangasContainer({ mangas, choice, currUse, logged }) {
   // let mangas2 = [...mangas]
-  console.log(manga.title)
+  console.log(mangas[0])
   return (
     <>
-    <div>
-    {manga.map(m => <NewMangaCards key={m.title + m.id} manga={m} choice={choice} currUse={currUse} />)}
+    <div className='manga-card' id='card-holder'>
+    {mangas.map(m => (<NewMangaCards key={m.title + m.id} manga={m} choice={choice} currUse={currUse} logged={logged} />))}
 
     </div>
     </>

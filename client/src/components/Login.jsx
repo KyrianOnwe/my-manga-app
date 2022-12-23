@@ -39,11 +39,11 @@ function Login({setu, usErr}) {
 
         return (
         <> 
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className='form2'>
         <label>
           Username
           </label>
-        <input type='text' name='Username' value={user_name} onChange={handleChange} />
+        <input type='text' name='user_name' value={user_name} onChange={handleChange} />
     
         <label>
           Password

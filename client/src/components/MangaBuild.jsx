@@ -47,36 +47,41 @@ function MangaBuild({ addMng, usErr }) {
       }
   return (
     <> 
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className='manga-form'>
     <label>
       Title?
       </label>
-    <input type='text' name='title' value={title} onChange={handleChange} />
+    <input type='text' name='title' value={title} placeholder='Title' onChange={handleChange} />
 
     <label>
       Description?
       </label>
-    <input type='text' name='description' value={description} onChange={handleChange} />
+    <input type='text' name='description' value={description} placeholder='description' onChange={handleChange} />
    
     <label>
       Is it still going strong (true or false)?
       </label>
-    <input type='text' name='ongoing' value={ongoing} onChange={handleChange} />
+    <input type='text' name='ongoing' value={ongoing} placeholder='Is it ongoing' onChange={handleChange} />
 
     <label>
       Genre?
       </label>
-    <input type='text' name='genre' value={genre} onChange={handleChange} />
+    <input type='text' name='genre' value={genre} placeholder='Genre' onChange={handleChange} />
 
     <label>
       How many chapters?
       </label>
-    <input type='text' name='chapters' value={chapters} onChange={handleChange} />
+    <input type='text' name='chapters' value={chapters} placeholder= 'How many chapters?' onChange={handleChange} />
 
     <label>
       Image url:
       </label>
-    <input type='text' name='image' value={artist} onChange={handleChange} />
+    <input type='text' name='image' value={image} placeholder='Image url' onChange={handleChange} />
+
+    <label>
+      Artist:
+      </label>
+    <input type='text' name='artist' value={artist} placeholder='Artist name' onChange={handleChange} />
 
     <input type='submit' value='Add it' />
   </form>

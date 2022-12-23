@@ -1,18 +1,18 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 function Logout({ deleteUser }) {
-  const hist = useNavigate()
+  // const hist = useNavigate()
     function logout(){
         fetch('/logout', {
             method: 'DELETE'
         })
-        .then(() => both())                
+        // .then(() => both())                
     }
 
     function both(){
       logout()
-      hist('/')
+      // hist('/')
       deleteUser()
       // sstart(false)
       

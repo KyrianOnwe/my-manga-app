@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     def create
         rvw = Review.create(reviews_params)
-         render json: rvw, status: :created
+         render json: rvw, status: :ok
     end
 
     private

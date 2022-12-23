@@ -3,23 +3,27 @@ import React from 'react'
 import Reviews from './Reviews'
 
 
-function NewMangaCards({ manga, choice, currUse }) {
+function NewMangaCards({ manga, choice, currUse, logged }) {
   // when a card is clicked, should show the review page for that title along with pic of title, add review, like or dislike
+
+  // const currentUser = useRef(currUse)
   function setChoice(){
-    currUse.id ? choice(manga.id) : noUser()
+    choice(manga.id)
   }
 
   function noUser(){
     alert('Only signed in users can interact with reviews!')
     
   }
+  console.log(manga)
 
   let reviews = [...manga.reviews]
-  console.log(manga.reviews)
+  
   return (
-    <div onClick={setChoice}>
+    <div onClick={!logged ? noUser : setChoice} className='card'>
       <h4>{manga.title}</h4>
-      {reviews.length >= 1 ? reviews.map(r => <Reviews key={r.review} rev={r} />) : null}
+      {reviews.length >= 1 ? reviews.map(r => <Reviews key={r.review + r.id} rev={r} />) : null}
+      
     </div>
   )
 }
