@@ -2,6 +2,7 @@ import React from 'react'
 // import { Link } from 'react-router-dom'
 import Reviews from './Reviews'
 
+
 function MangaCards({ title, reviews, id, choice, currUse }) {
   // when a card is clicked, should show the review page for that title along with pic of title, add review, like or dislike
   function setChoice(){
