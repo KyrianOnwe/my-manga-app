@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Search from './Search'
 import MangasContainer from './MangasContainer'
 import ReviewsPage from './ReviewsPage'
+import { Container } from "@material-ui/core"
 
 function MangaPage({ mangas, currUse }) {
   const [mangaChoice, setMangaChoice] = useState({})
@@ -31,13 +32,14 @@ function MangaPage({ mangas, currUse }) {
 
   return (
     <>
+    <Container maxWidth="sm" background-color='gray' >
       {mangaChoice.x ? <div>
         <ReviewsPage manga={mangaChoice} reset={resetMangaPage} currUse={currUse} />
       </div> : <div>
         <Search />
         <MangasContainer mangas={mangas} choice={useSetMangaChoice} currUse={currUse} />
       </div> }
-
+    </Container>
       
     </>
   )
