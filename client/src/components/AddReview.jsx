@@ -24,16 +24,11 @@ function AddReview({  usErr, id, currUse, add, mangas  }) {
         }
       })
   }
-  // function handleRevReset(data){
-  //   add(data)
-  //   setReview('')
-    
-  // }
+
   console.log(mangas)
   function mangaUpdate(data){
     add(data)
   }
-  // {manga id, user id(if any), the review}
 
   return (
     <div>
