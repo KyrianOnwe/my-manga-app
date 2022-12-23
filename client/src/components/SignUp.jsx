@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import {Form} from '../styled/Form'
 
 function SignUp({ useSetUser, usErr }) {
     const [user_name, setUsername] = useState('')
