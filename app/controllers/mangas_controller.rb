@@ -1,7 +1,5 @@
 class MangasController < ApplicationController
-    # skip_before_action :authenticate_user, only: :index
-    # skip_before_action :is_authorized
-    # skip_before_action :current_user
+ 
     def index
         manga = Manga.all
         render json: manga, status: :ok
