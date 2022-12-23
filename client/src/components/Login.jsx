@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-// import {Form} from '../styled/Form'
 
 function Login({setu, usErr}) {
     const [formData, setFormData] = useState({
