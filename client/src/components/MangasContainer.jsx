@@ -2,7 +2,6 @@ import React from 'react'
 import NewMangaCards from './NewMangaCards'
 
 function MangasContainer({ mangas, choice, currUse, logged }) {
-  // let mangas2 = [...mangas]
   console.log(mangas[0])
   return (
     <>
