@@ -3,7 +3,7 @@ import AddReview from './AddReview'
 import Reviews from './Reviews'
 import { useNavigate } from 'react-router-dom'
 
-function ReviewsPage({ manga, reset, currUse, mangas, setVo, add }) {
+function ReviewsPage({ manga, reset, currUse, mangas, setVo }) {
   const [obj, setObj] = useState(manga)
 
   console.log(manga)
