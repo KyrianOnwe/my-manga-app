@@ -8,6 +8,8 @@ import Auth from './components/Auth'
 import { AppBar, CssBaseline, Grid } from "@material-ui/core"
 import MangaBuild from './components/MangaBuild';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
 
 
@@ -107,6 +109,7 @@ console.log(logged)
   return (
     <>
     <CssBaseline />
+    <Header id='header'/>
     <AppBar position='relative'>
       <NavBar deleteUser={deleteUser} currUser={currentUser} logged={logged}/>
     </AppBar>
@@ -133,6 +136,7 @@ console.log(logged)
       {/* <ReviewsPage /> */}       
     </div>
     {errors?errors.map(e => <div key={e[0]}>{e[0] +': ' + e[1]}</div>):null}
+    <Footer />
     </>
   );
 }
