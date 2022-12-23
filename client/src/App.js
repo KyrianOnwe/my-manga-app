@@ -9,6 +9,8 @@ import Auth from './components/Auth'
 // import ReviewsPage from './components/ReviewsPage';
 import { Typography, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container, Button } from "@material-ui/core"
 import useStyles from "./styles";
+import MangaBuild from './components/MangaBuild';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 
 
@@ -30,6 +32,7 @@ function App() {
 
  function useSetCurrentUser(info){
   setCurrentUser(info)
+  hist('/mangas')
  }
 
 //  function useSetSigningIn(){
@@ -84,6 +87,10 @@ function App() {
   
   }
 
+  function addNewManga(data){
+    setMangas([...mangas, data])
+  }
+
 
 
  
@@ -91,26 +98,31 @@ function App() {
     <>
     <CssBaseline />
     <AppBar position='relative'>
-      <NavBar deleteUser={deleteUser}/>
+      <NavBar deleteUser={deleteUser} currUser={currentUser} />
     </AppBar>
     <div className="App">
       
       <div className={classes.button} onClick={() => hist('/auth')} >
       <Grid container spacing={2} justifyContent='center' >
         <Grid item>
-          <Button variant='contained' color='orange'>
+          <AccountBoxIcon >
+          <svg data-testid="AccountBoxIcon" color='primary' fontSize='small'>
             Log In
-          </Button>
+          </svg>
+          </AccountBoxIcon>
         </Grid>
       </Grid>
       </div>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/auth' element={<Auth setu={useSetCurrentUser} useSE={useSetErrors} newUsr={newUser} useSnu={useSetNewUser} />} />
-        <Route path='/mangas' element={<MangaPage mangas={mangas} currUse={currentUser} />} />                
+        <Route path='/mangas' element={<MangaPage mangas={mangas} currUse={currentUser} />} />  
+        <Route path='/mangas/new' element={<MangaBuild addMng={addNewManga} usErr={useSetErrors} />} />
+                     
       </Routes>
-      {/* <ReviewsPage /> */} 
+      {/* <ReviewsPage /> */}       
     </div>
+    {errors?errors.map(e => <div key={e[0]}>{e[0] +': ' + e[1]}</div>):null}
     </>
   );
 }
