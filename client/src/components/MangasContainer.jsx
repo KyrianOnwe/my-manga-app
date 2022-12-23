@@ -1,12 +1,16 @@
 import React from 'react'
-import MangaCards from './MangaCards'
+import NewMangaCards from './NewMangaCards'
 
-function MangasContainer({ mangas, choice, currUse }) {
+function MangasContainer({ manga, choice, currUse }) {
+  // let mangas2 = [...mangas]
+  console.log(manga.title)
   return (
+    <>
     <div>
-      {mangas.map(m => <MangaCards key={m.title + m.reviews+m.id} title={m.title} id={m.id} reviews={m.reviews} choice={choice} currUse={currUse} />)}
+    {manga.map(m => <NewMangaCards key={m.title + m.id} manga={m} choice={choice} currUse={currUse} />)}
 
     </div>
+    </>
   )
 }
 

@@ -3,16 +3,16 @@ import React, {useState} from 'react'
 
 function Login({setu, usErr}) {
     const [formData, setFormData] = useState({
-        name:'',
+        user_name:'',
         password:''
     })
 
-    const {name, password} = formData
+    const {user_name, password} = formData
 
     function onSubmit(e){
         e.preventDefault()
         const user = {
-            name,
+            user_name,
             password
         }        
        
@@ -43,7 +43,7 @@ function Login({setu, usErr}) {
         <label>
           Username
           </label>
-        <input type='text' name='name' value={name} onChange={handleChange} />
+        <input type='text' name='Username' value={user_name} onChange={handleChange} />
     
         <label>
           Password

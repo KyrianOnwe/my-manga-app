@@ -3,7 +3,7 @@ import React from 'react'
 import Reviews from './Reviews'
 
 
-function MangaCards({ manga, choice, currUse }) {
+function NewMangaCards({ manga, choice, currUse }) {
   // when a card is clicked, should show the review page for that title along with pic of title, add review, like or dislike
   function setChoice(){
     currUse.id ? choice(manga.id) : noUser()
@@ -14,14 +14,14 @@ function MangaCards({ manga, choice, currUse }) {
     
   }
 
-  let reviews = manga.reviews
-  console.log(manga)
+  let reviews = [...manga.reviews]
+  console.log(manga.reviews)
   return (
     <div onClick={setChoice}>
       <h4>{manga.title}</h4>
-      {manga.map(r => <Reviews key={r.review} rev={r.review} />)}
+      {reviews.length >= 1 ? reviews.map(r => <Reviews key={r.review} rev={r} />) : null}
     </div>
   )
 }
 
-export default MangaCards
+export default NewMangaCards

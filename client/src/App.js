@@ -7,15 +7,15 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import Home from './components/Home';
 import Auth from './components/Auth'
 // import ReviewsPage from './components/ReviewsPage';
-import { Typography, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container, Button } from "@material-ui/core"
-import useStyles from "./styles";
+import { AppBar, CssBaseline, Grid } from "@material-ui/core"
+// import useStyles from "./styles";
 import MangaBuild from './components/MangaBuild';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 
 
 function App() {
-  const classes = useStyles()
+  // const classes = useStyles()
   const [mangas, setMangas] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [errors, setErrors] = useState([])
@@ -26,8 +26,13 @@ function App() {
   // send to auth to process for signing in
  useEffect(() => {
    fetch('/mangas')
-    .then(res => res.json())
-    .then(data => setMangas(data))  
+    .then(res => {
+      if(res.ok){
+        res.json().then(useSetMangas)
+      } else {
+        res.json().then(useSetErrors)
+      }
+    })  
  }, [])
 
  function useSetCurrentUser(info){
@@ -35,6 +40,9 @@ function App() {
   hist('/mangas')
  }
 
+ function useSetMangas(ata){
+  setMangas([...mangas, ata])
+ }
 //  function useSetSigningIn(){
 //   setSigningIn(true)
 //  }
@@ -91,6 +99,16 @@ function App() {
     setMangas([...mangas, data])
   }
 
+  useEffect(() => {
+    fetch('/auth')
+      .then(res => {
+        if(res.ok){
+          res.json().then(useSetCurrentUser)
+        } 
+      }      
+      )
+  },[])
+
 
 
  
@@ -102,7 +120,7 @@ function App() {
     </AppBar>
     <div className="App">
       
-      <div className={classes.button} onClick={() => hist('/auth')} >
+      {currentUser ? null : <div className='button' id='auth' onClick={() => hist('/auth')} >
       <Grid container spacing={2} justifyContent='center' >
         <Grid item>
           <AccountBoxIcon >
@@ -112,7 +130,7 @@ function App() {
           </AccountBoxIcon>
         </Grid>
       </Grid>
-      </div>
+      </div>}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/auth' element={<Auth setu={useSetCurrentUser} useSE={useSetErrors} newUsr={newUser} useSnu={useSetNewUser} />} />

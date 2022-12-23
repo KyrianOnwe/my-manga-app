@@ -14,7 +14,7 @@ function MangaPage({ mangas, currUse }) {
     // console.log(num.id)
     setMangaChoice({x})
   }
-  console.log(mangaChoice)
+  console.log(mangas)
 
 
   // useEffect(() => {
@@ -37,7 +37,7 @@ function MangaPage({ mangas, currUse }) {
         <ReviewsPage manga={mangaChoice} reset={resetMangaPage} currUse={currUse} />
       </div> : <div>
         <Search />
-        <MangasContainer mangas={mangas} choice={useSetMangaChoice} currUse={currUse} />
+        {mangas.map(manga => <MangasContainer key={manga} manga={manga} choice={useSetMangaChoice} currUse={currUse} />)}
       </div> }
     </Container>
       

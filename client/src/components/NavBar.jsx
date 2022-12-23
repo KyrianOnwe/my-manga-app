@@ -10,7 +10,7 @@ function NavBar({ deleteUser, currUser }) {
         <li><Link to="/">Home</Link></li>          
         {/* <li><Link to="/reviews">Reviews</Link></li> */}
         <li><Link to="/mangas">Mangas</Link></li>
-        {currUser.id ? <Logout deleteUser={deleteUser} /> : null}
+        {currUser ? <Logout deleteUser={deleteUser} /> : null}
         <li><Link to="/mangas/new">Add a Fresh Mangas</Link></li>
 
     </ul>    
