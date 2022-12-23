@@ -1,12 +1,9 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 import Reviews from './Reviews'
 
 
 function NewMangaCards({ manga, choice, currUse, logged }) {
-  // when a card is clicked, should show the review page for that title along with pic of title, add review, like or dislike
-
-  // const currentUser = useRef(currUse)
+  
   function setChoice(){
     choice(manga.id)
   }
