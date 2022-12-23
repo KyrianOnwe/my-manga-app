@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
 import MangaPage from './components/MangaPage'
@@ -6,25 +5,20 @@ import NavBar from './components/NavBar';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Home from './components/Home';
 import Auth from './components/Auth'
-// import ReviewsPage from './components/ReviewsPage';
 import { AppBar, CssBaseline, Grid } from "@material-ui/core"
-// import useStyles from "./styles";
 import MangaBuild from './components/MangaBuild';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 
 
 function App() {
-  // const classes = useStyles()
   const [mangas, setMangas] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   const [errors, setErrors] = useState([])
   const [newUser, setNewUser] = useState(false)
   const [logged, setLogged] = useState(false)
-  // const [signingIn, setSigningIn] = useState(false)
   const hist = useNavigate()
   
-  // send to auth to process for signing in
  useEffect(() => {
    fetch('/mangas')
     .then(res => {
@@ -59,12 +53,8 @@ console.log(logged)
   setMangas(data)
   hist('/mangas')
  }
-//  function useSetSigningIn(){
-//   setSigningIn(true)
-//  }
 
  function deleteUser(){
-  // console.log('deleted user')
   setCurrentUser({})
   hist('/mangas')
   setMangas(mangas)
@@ -113,26 +103,6 @@ console.log(logged)
     }
   
   }
-
-  // function addNewManga(data){
-  //   setMangas([...mangas, data])
-  // }
-
-  // useEffect(() => {
-  //   fetch('/auth')
-  //     .then(res => {
-  //       if(res.ok){
-  //         res.json().then(useSetCurrentUser)
-  //       } else {
-  //         console.log('hello')
-  //       }
-  //     }      
-  //     )
-  // },[])
-
-  
-
-
  
   return (
     <>
